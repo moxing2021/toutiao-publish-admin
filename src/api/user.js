@@ -16,15 +16,16 @@ export const login = data =>{
 }
 //用户信息
 export const getUserProfile = () =>{
-    const user = JSON.parse(window.localStorage.setItem('user'))
-
+    //注释的代码放到axios拦截请求器里面了
+    //const user = JSON.parse(window.localStorage.getItem('user'))
+    //console.log(user)
     return request({
-        method: 'PATCH',
-        url: '/mp/v1_0/user/profile',
+        method: 'GET',
+        url: '/mp/v1_0/user/profile'
         
-        headers:{
-            Authorization: `Bearer ${user.token}`
-        }
+        // headers:{
+        //     Authorization: `Bearer ${user.token}`
+        // }
         
     })
 }

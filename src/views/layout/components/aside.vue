@@ -7,6 +7,8 @@
     text-color="#fff"
     active-text-color="#ffd04b"
     router
+    :collapse="isCollapse"
+    class="aside-width"
   >
     <el-menu-item index="/">
         <svg class="icon" aria-hidden="true">
@@ -14,20 +16,20 @@
         </svg>
       <span slot="title">首页</span>
     </el-menu-item>
-    <el-submenu index="article">
+    <el-submenu index="/article"  width="auto">
       <template slot="title">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-cha"></use>
         </svg>
         <span>内容管理</span>
       </template>
-      <el-menu-item index="/article-title">
+      <el-menu-item index="/articletitle">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-buding"></use>
         </svg>
         <span slot="title">标题</span>
       </el-menu-item>
-      <el-menu-item index="/article-img">
+      <!-- <el-menu-item index="/article-img">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-baomihua"></use>
         </svg>
@@ -38,7 +40,7 @@
           <use xlink:href="#icon-beizidangao"></use>
         </svg>
         <span slot="title">链接</span>
-      </el-menu-item>
+      </el-menu-item> -->
     </el-submenu>
 
     <el-menu-item index="/img">
@@ -78,9 +80,12 @@
 export default {
   name: "AppAside",
   components: {},
-  props: {},
+  props: ['is-collapse'],
   data() {
-    return {};
+    return {
+      // 展开和收起按钮
+      //isCollapse:true
+    };
   },
   computed: {},
   watch: {},
@@ -98,6 +103,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.aside-width:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
 .icon {
   margin-right: 5px;
   margin-left: 5px;
